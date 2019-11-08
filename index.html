@@ -52,26 +52,168 @@
 
   <br>
   <br>
-  <div class="text-body text-white">
+  <div class="text-body text-white" style="height:400px">
     <h1 class="text-white">Croo members:</h1>
     <p id="total" class="text-white">0</p>
   </div>
 
+  <div class="text-white divide">
+    <img src="img/roorace.jpg">
+    <div class="quote centered">PREPARE THY SELF</div>
+  </div>
+
+
+
   <section id="who", class="graphic-body">
     <h2>Who?</h2>
-    <div class="container" , id="network">
+    <br>
+    <!--Profile Carousel-->
+
+    <div class="carousel slide" , id="profile" data-ride="carousel">
+      <div id="carouselControl" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <!--CIRIA-->
+          <div class="carousel-item active container">
+            <div class="row">
+              <div class="col-sm">
+                <img class="d-block w-100 slides h-75" src="img/ciria.jpg" >              </div>
+              <div class="col-sm slide-text">
+                Ciria
+              </div>
+            </div>
+          </div>
+          <!--James-->
+          <div class="carousel-item container">
+            <div class="row">
+              <div class="col-sm">
+                <img class="d-block w-100 slides h-75" src="img/james.jpg" >              </div>
+              <div class="col-sm slide-text">
+                James Fullerton
+              </div>
+            </div>
+          </div>
+          <!--Katy-->
+          <div class="carousel-item container">
+            <div class="row">
+              <div class="col-sm">
+                <img class="d-block w-100 slides h-75" src="img/katy.jpg" >              </div>
+              <div class="col-sm slide-text">
+                Katy McKeough
+              </div>
+            </div>
+          </div>
+          <!--Kyle / Henry-->
+          <div class="carousel-item container">
+            <div class="row">
+              <div class="col-sm">
+                <img class="d-block w-100 slides h-75" src="img/kyle_henry.jpeg" >              </div>
+              <div class="col-sm slide-text">
+                Kyle Henson & Butters
+              </div>
+            </div>
+          </div>
+          <!--Malcolm-->
+          <div class="carousel-item container">
+            <div class="row">
+              <div class="col-sm">
+                <img class="d-block w-100 slides h-75" src="img/malcolm.jpeg" >              </div>
+              <div class="col-sm slide-text">
+                Malcolm
+              </div>
+            </div>
+          </div>
+          <!--Moritz-->
+          <div class="carousel-item container">
+            <div class="row">
+              <div class="col-sm">
+                <img class="d-block w-100 slides h-75" src="img/moritz.jpg" >              </div>
+              <div class="col-sm slide-text">
+                Mortiz
+              </div>
+            </div>
+          </div>
+          <!--Aubry & Sarah-->
+          <div class="carousel-item container">
+            <div class="row">
+              <div class="col-sm">
+                <img class="d-block w-100 slides h-75" src="img/aubrey_sarah.jpg" >              </div>
+              <div class="col-sm slide-text">
+                Aubry Higgonson
+                <br>
+                Sarah McQuade
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselControl" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselControl" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
     </div>
+
+    <!--Forced Layout Graph-->
+
+    <div class="container"  id="network"></div>
   </section>
-  <section id="when", class="graphic-body">
+
+  <!--Quote Divide-->
+
+  <div class="text-white divide">
+    <img src="img/dance.jpeg">
+    <div class="quote centered">PLAY AS A TEAM</div>
+  </div>
+
+  <!--WHEN-->
+
+  <section id="when" class="graphic-body">
     <h2>When?</h2>
-    <div class="container" , id="timeline">
+    <!--Timeline-->
+
+    <div class="container"  id="timeline">
     </div>
   </section>
+
+  <!--Quote Divide-->
+  <div class="text-white divide">
+    <img src="img/odesza2.jpg">
+    <div class="quote centered">RADIATE POSITIVITY</div>
+  </div>
+
+  <!--WHERE-->
+
   <section id="where", class="graphic-body">
     <h2>Where?</h2>
-    <div class="container" , id="map">
+    <!--map-->
+    <div class="row">
+      <div class="col-sm">
+        <div class="container"  id="map-container"></div>
+      </div>
+      <div class="col-sm slide-text">
+        <div class="container"  id="dateselect">      </div>
+      </div>
+      </div>
     </div>
   </section>
+
+  <div class="text-white divide">
+    <img src="img/where.jpg">
+    <div class="quote centered">RESPECT THE FARM</div>
+  </div>
+
+  <div class="text-white divide">
+    <img src="img/wall.jpg">
+    <div class="quote centered">DON'T BE THAT GUY/GAL</div>
+  </div>
+
+  <div class="text-white divide">
+    <img src="img/roorace.jpg">
+    <div class="quote centered">STAY TRUE TO ROO</div>
+  </div>
 
 
   <footer class="py-5 footer">
@@ -89,11 +231,16 @@
   <script src="js/scrolling-nav.js"></script>
 
   <!-- D3 -->
+  <script src="js/colorbrewer.js"></script>
   <script src="https://d3js.org/d3.v4.min.js"></script>
 
   <!-- Custom JavaScript-->
   <script src="js/network.js"></script>
   <script src="js/total.js"></script>
+  <script src="js/attend_roo.js"></script>
+  <script src="js/when.js"></script>
+  <!--<script src="js/where.js"></script>-->
+  <!--<script src="js/cartogram.js"></script>-->
 
 
 </body>

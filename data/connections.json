@@ -83,7 +83,7 @@
     {
       "id": 16,
       "name": "Sarah",
-      "city": "Boston, MA"
+      "city": "New Haven, MA"
     },
     {
       "id": 17,
@@ -98,7 +98,7 @@
     {
       "id": 19,
       "name": "Tony",
-      "city": "New York, NY"
+      "city": " NY"
     },
     {
       "id": 20,
@@ -107,7 +107,7 @@
     },
     {
       "id": 21,
-      "name": "Grant",
+      "name": "Greg",
       "city": "Austin, TX"
     },
     {
@@ -124,6 +124,26 @@
       "id": 24,
       "name": "Ciria",
       "city": "Washington DC"
+    },
+    {
+      "id": 25,
+      "name": "Malcolm",
+      "city": "Los Angeles, CA"
+    },
+    {
+      "id": 26,
+      "name": "Michele",
+      "city": "Boston, MA"
+    },
+    {
+      "id": 27,
+      "name": "Laurel",
+      "city": "Madison, WI"
+    },
+    {
+      "id": 28,
+      "name": "Moritz",
+      "city": "New York, NY"
     }
 
   ],
@@ -291,6 +311,26 @@
     {
       "source": 3,
       "target": 23
+    },
+    {
+      "source": 0,
+      "target": 25
+    },
+    {
+      "source": 3,
+      "target": 26
+    },
+    {
+      "source": 0,
+      "target": 26
+    },
+    {
+      "source": 3,
+      "target": 27
+    },
+    {
+      "source": 10,
+      "target": 28
     }
   ]
 }

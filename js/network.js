@@ -1,5 +1,5 @@
 var width = document.getElementById("who").clientWidth,
-    height = 600;
+    height = 800;
 
 var svg = d3.select("#network").append("svg")
     .attr("id","networksvg")
@@ -15,7 +15,7 @@ var svg = d3.select("#network").append("svg")
 d3.json("data/connections.json", function(data) {
 
 
-    console.log(data);
+    // console.log(data);
 
 
     // 1) INITIALIZE FORCE-LAYOUT
@@ -39,7 +39,7 @@ d3.json("data/connections.json", function(data) {
         .data(data.nodes)
         .enter().append("circle")
         .attr("class", "node")
-        .attr("r", 30)
+        .attr("r", 25)
         .attr("fill", function(d){
             if(d.city == "New York, NY"){
                 return "#FF0080"
@@ -54,11 +54,8 @@ d3.json("data/connections.json", function(data) {
             }else if( d.city =="Philadelphia, PA"){
                 return "#84e12b"
             }else{
-                return
+                return "#343a40"
             }
-
-
-
         });
 
 
