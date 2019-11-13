@@ -1,15 +1,14 @@
-Cartogram = function(_parentElement, _data) {
+Cartogram = function(_parentElement, _data, _colormax) {
     this.parentElement = _parentElement;
     this.data = _data;
+    this.colormax = _colormax;
     this.displayData = [];
-    this.filteredData = this.data;
-    this.filteredData_time = this.data;
-    this.filteredData_drop = this.data;
+    this.filteredData = this.data.filter(d => d.years=="All")[0];
 
-    console.log(this.data);
+
     // layout box adapted from http://code.minnpost.com/aranger/
     this.defaults = {
-        el: '#map-container',
+        el: '#'+this.parentElement,
         layout: [[0,0,"AK"],[10,0,"ME"],[9,1,"VT"],[10,1,"NH"],[0,2,"WA"],[1,2,"ID"],[2,2,"MT"],[3,2,"ND"],[4,2,"MN"],[6,2,"MI"],[8,2,"NY"],[9,2,"MA"],[10,2,"RI"],[0,3,"OR"],[1,3,"UT"],[2,3,"WY"],[3,3,"SD"],[4,3,"IA"],[5,3,"WI"],[6,3,"IN"],[7,3,"OH"],[8,3,"PA"],[9,3,"NJ"],[10,3,"CT"],[0,4,"CA"],[1,4,"NV"],[2,4,"CO"],[3,4,"NE"],[4,4,"MO"],[5,4,"IL"],[6,4,"KY"],[7,4,"WV"],[8,4,"VA"],[9,4,"MD"],[10,4,"DE"],[1,5,"AZ"],[2,5,"NM"],[3,5,"KS"],[4,5,"AR"],[5,5,"TN"],[6,5,"NC"],[7,5,"SC"],[8,5,"DC"],[3,6,"OK"],[4,6,"LA"],[5,6,"MS"],[6,6,"AL"],[7,6,"GA"],[0,7,"HI"],[3,7,"TX"],[8,7,"FL"]],
         labels: {'AK': {'full': 'Alaska', 'short': 'AK', 'ap': 'Alaska'}, 'AL': {'full': 'Alabama', 'short': 'AL', 'ap': 'Ala.'}, 'AR': {'full': 'Arkansas', 'short': 'AR', 'ap': 'Ark.'}, 'AZ': {'full': 'Arizona', 'short': 'AZ', 'ap': 'Ariz.'}, 'CA': {'full': 'California', 'short': 'CA', 'ap': 'Calif.'}, 'CO': {'full': 'Colorado', 'short': 'CO', 'ap': 'Colo.'}, 'CT': {'full': 'Connecticut', 'short': 'CT', 'ap': 'Conn.'}, 'DC': {'full': 'District of Columbia', 'short': 'DC', 'ap': 'D.C.'}, 'DE': {'full': 'Delaware', 'short': 'DE', 'ap': 'Del.'}, 'FL': {'full': 'Florida', 'short': 'FL', 'ap': 'Fla.'}, 'GA': {'full': 'Georgia', 'short': 'GA', 'ap': 'Ga.'}, 'HI': {'full': 'Hawaii', 'short': 'HI', 'ap': 'Hawaii'}, 'IA': {'full': 'Iowa', 'short': 'IA', 'ap': 'Iowa'}, 'ID': {'full': 'Idaho', 'short': 'ID', 'ap': 'Idaho'}, 'IL': {'full': 'Illinois', 'short': 'IL', 'ap': 'Ill.'}, 'IN': {'full': 'Indiana', 'short': 'IN', 'ap': 'Ind.'}, 'KS': {'full': 'Kansas', 'short': 'KS', 'ap': 'Kan.'}, 'KY': {'full': 'Kentucky', 'short': 'KY', 'ap': 'Ky.'}, 'LA': {'full': 'Louisiana', 'short': 'LA', 'ap': 'La.'}, 'MA': {'full': 'Massachusetts', 'short': 'MA', 'ap': 'Mass.'}, 'MD': {'full': 'Maryland', 'short': 'MD', 'ap': 'Md.'}, 'ME': {'full': 'Maine', 'short': 'ME', 'ap': 'Maine'}, 'MI': {'full': 'Michigan', 'short': 'MI', 'ap': 'Mich.'}, 'MN': {'full': 'Minnesota', 'short': 'MN', 'ap': 'Minn.'}, 'MO': {'full': 'Missouri', 'short': 'MO', 'ap': 'Mo.'}, 'MS': {'full': 'Mississippi', 'short': 'MS', 'ap': 'Miss.'}, 'MT': {'full': 'Montana', 'short': 'MT', 'ap': 'Mont.'}, 'NC': {'full': 'North Carolina', 'short': 'NC', 'ap': 'N.C.'}, 'ND': {'full': 'North Dakota', 'short': 'ND', 'ap': 'N.D.'}, 'NE': {'full': 'Nebraska', 'short': 'NE', 'ap': 'Neb.'}, 'NH': {'full': 'New Hampshire', 'short': 'NH', 'ap': 'N.H.'}, 'NJ': {'full': 'New Jersey', 'short': 'NJ', 'ap': 'N.J.'}, 'NM': {'full': 'New Mexico', 'short': 'NM', 'ap': 'N.M.'}, 'NV': {'full': 'Nevada', 'short': 'NV', 'ap': 'Nev.'}, 'NY': {'full': 'New York', 'short': 'NY', 'ap': 'N.Y.'}, 'OH': {'full': 'Ohio', 'short': 'OH', 'ap': 'Ohio'}, 'OK': {'full': 'Oklahoma', 'short': 'OK', 'ap': 'Okla.'}, 'OR': {'full': 'Oregon', 'short': 'OR', 'ap': 'Ore.'}, 'PA': {'full': 'Pennsylvania', 'short': 'PA', 'ap': 'Pa.'}, 'RI': {'full': 'Rhode Island', 'short': 'RI', 'ap': 'R.I.'}, 'SC': {'full': 'South Carolina', 'short': 'SC', 'ap': 'S.C.'}, 'SD': {'full': 'South Dakota', 'short': 'SD', 'ap': 'S.D.'}, 'TN': {'full': 'Tennessee', 'short': 'TN', 'ap': 'Tenn.'}, 'TX': {'full': 'Texas', 'short': 'TX', 'ap': 'Texas'}, 'UT': {'full': 'Utah', 'short': 'UT', 'ap': 'Utah'}, 'VA': {'full': 'Virginia', 'short': 'VA', 'ap': 'Va.'}, 'VT': {'full': 'Vermont', 'short': 'VT', 'ap': 'Vt.'}, 'WA': {'full': 'Washington', 'short': 'WA', 'ap': 'Wash.'}, 'WI': {'full': 'Wisconsin', 'short': 'WI', 'ap': 'Wis.'}, 'WV': {'full': 'West Virginia', 'short': 'WV', 'ap': 'W.Va.'}, 'WY': {'full': 'Wyoming', 'short': 'WY', 'ap': 'Wyo.'} },
         labelStyle: 'short',
@@ -24,10 +23,10 @@ Cartogram = function(_parentElement, _data) {
 Cartogram.prototype.initVis = function() {
     var vis = this;
 
-    vis.margin = {top: 60, right: 0, bottom: 30, left: 0};
+    vis.margin = {top: 60, right: 0, bottom: 100, left: 40};
 
-    vis.width = $("#" + "map-dashboard").width()*0.75 - vis.margin.left - vis.margin.right;
-    vis.height = vis.width*0.88 - vis.margin.top - vis.margin.bottom;
+    vis.width = Math.min($("#" + "where").width()*0.75 - vis.margin.left - vis.margin.right,800);
+    vis.height = vis.width*7/11;
 
     // draw SVG area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -37,16 +36,13 @@ Cartogram.prototype.initVis = function() {
         .attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
     // set color scales
-    vis.color = d3.scaleQuantile();
+    vis.color = d3.scaleLinear();
 
-    // initialize legend title
-    vis.legendTitle = vis.svg.append("text")
-        .attr("class","legend-title");
 
-    // define the div for the tooltip
-    vis.div = d3.select("body").append("div")
-        .attr("class", "tooltip")
-        .style("opacity", 0);
+    // // define the div for the tooltip
+    // vis.div = d3.select("body").append("div")
+    //     .attr("class", "tooltip")
+    //     .style("opacity", 0);
 
     vis.wrangleData();
 };
@@ -57,13 +53,11 @@ Cartogram.prototype.wrangleData = function() {
     // counts number of states
     var grabCounts = function(state_lab) {
         var count = 0;
-        for (ii = 0; ii < vis.filteredData.length; ii++) {
-            for (var column in vis.filteredData[ii]) {
-                if (column === vis.defaults.labels[state_lab].short) {
-                    count+= vis.filteredData[ii][column] ;
+            for (var column in vis.filteredData) {
+                if (column === state_lab) {
+                    count+= vis.filteredData[column] ;
                 }
             }
-        }
         return count;
     };
 
@@ -89,73 +83,12 @@ Cartogram.prototype.updateVis = function() {
         return d.data;
     });
 
-    if(d3.max(vis.displayData,function(d) {
-        return d.data;}) < 6) {
-        vis.color.range(colorbrewer.OrRd[d3.max(vis.displayData,function(d) {return d.data;}) + 1]);
-    } else {
-        vis.color.range(colorbrewer.OrRd[6]);
-    }
-    vis.color.domain([0,Math.log(d3.max(vis.displayData,function(d) {
-        return d.data;
-    }))]);
+    vis.color.range(["#000000","#7a41ff"]);
+    vis.color.domain([0,colorMax]);
 
-    // add legend data
-    var quant_cutoff = vis.color.quantiles();
 
-    if((Math.trunc(Math.exp(quant_cutoff[0]))) ===1 || checkZero === 0) {
-        vis.displayData.push({
-            x:2,
-            y:9.5,
-            box:"" + 0,
-            data:0
-        });
-    } else {
-        vis.displayData.push({
-            x:2,
-            y:9.5,
-            box:0 + "-" + (Math.trunc(Math.exp(quant_cutoff[0]))), data:0
-        });
-    }
-
-    // draw adaptive labels for legend
-    for(ii = 0 ; ii < 6 ; ii++) {
-        if(ii < quant_cutoff.length) {
-            if(ii === (quant_cutoff.length - 1)) {
-                if(vis.displayData[ 51 + ii].box === ("" + Math.trunc(Math.exp(quant_cutoff[ii])))) {
-                    var box = ">"+(Math.trunc(Math.exp(quant_cutoff[ii])) + 1);
-                } else {
-                    var box = ">" + Math.trunc(Math.exp(quant_cutoff[ii]));
-                }
-            } else {
-                if(vis.displayData[51 + ii].box === ("" + Math.trunc(Math.exp(quant_cutoff[ii])))) {
-                    var box = ""+(Math.trunc(Math.exp(quant_cutoff[ii]))+1);
-                } else {
-                    if(vis.displayData[51 + ii].box === ("" + Math.trunc(Math.exp(quant_cutoff[ii + 1])) -1) || checkZero === 0) {
-                        var box = ""+Math.trunc(Math.exp(quant_cutoff[ii]));
-                    } else {
-                        var box = Math.trunc(Math.exp(quant_cutoff[ii])) + "-" + (Math.trunc(Math.exp(quant_cutoff[ii + 1])));
-                    }
-                }
-            }
-            vis.displayData.push({
-                x:2 + ii + 1,
-                y:9.5,
-                box:box ,
-                data: Math.exp(quant_cutoff[ii] + 0.1)
-            })
-        } else {
-            vis.displayData.push({
-                x:2 + ii + 1,
-                y:9.5,
-                box:box ,
-                data: 999
-            })
-        }
-    }
-
-    // draw carthogram
+    // draw cartogram
     vis.size = vis.boxDimensions();
-
     // join data
     vis.boxes = vis.svg.selectAll("g")
         .data(vis.displayData);
@@ -170,24 +103,24 @@ Cartogram.prototype.updateVis = function() {
 
     // enter and update
     vis.boxRect = vis.dataEnter.select("rect")
-        .on("mouseover", function(d) {
-            if(d.data !== 999) {
-                vis.div.transition()
-                    .duration(200)
-                    .style("opacity", .9);
-                vis.div.html(`State: <span style='color:#FFDB6D'>${vis.defaults.labels[d.box].full}</span><br><br>
-           Number of Reported Breaches: <span style='color:#FFDB6D'>${d.data}</span><br>`)
-                    .style("left", (d3.event.pageX) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
-            }
-        })
-        .on("mouseout", function(d) {
-            if(d.data !== 999) {
-                vis.div.transition()
-                    .duration(500)
-                    .style("opacity", 0)
-            }
-        })
+        // .on("mouseover", function(d) {
+        //     if(d.data !== 999) {
+        //         vis.div.transition()
+        //             .duration(200)
+        //             .style("opacity", .9);
+        //         vis.div.html(`State: <span style='color:#FFDB6D'>${vis.defaults.labels[d.box].full}</span><br><br>
+        //    Number of Reported Breaches: <span style='color:#FFDB6D'>${d.data}</span><br>`)
+        //             .style("left", (d3.event.pageX) + "px")
+        //             .style("top", (d3.event.pageY - 28) + "px");
+        //     }
+        // })
+        // .on("mouseout", function(d) {
+        //     if(d.data !== 999) {
+        //         vis.div.transition()
+        //             .duration(500)
+        //             .style("opacity", 0)
+        //     }
+        // })
         .transition()
         .duration(500)
         .attr("x", function(d) {
@@ -209,7 +142,7 @@ Cartogram.prototype.updateVis = function() {
             if (d.data === 999) {
                 return 'white';
             } else {
-                return vis.color(Math.log(d.data));
+                return vis.color(d.data);
             }
         })
         .attr("stroke",function(d){
@@ -217,24 +150,24 @@ Cartogram.prototype.updateVis = function() {
         });
 
     vis.boxText = vis.dataEnter.select("text")
-        .on("mouseover", function(d) {
-            if(d.data !== 999) {
-                vis.div.transition()
-                    .duration(200)
-                    .style("opacity", .9);
-                vis.div.html(`State: <span style='color:#FFDB6D'>${vis.defaults.labels[d.box].full}</span><br><br>
-                      Number of Reported Breaches: <span style='color:#FFDB6D'>${d.data}</span><br>`)
-                    .style("left", (d3.event.pageX) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
-            }
-        })
-        .on("mouseout", function(d) {
-            if(d.data !== 999) {
-                vis.div.transition()
-                    .duration(500)
-                    .style("opacity", 0)
-            }
-        })
+        // .on("mouseover", function(d) {
+        //     if(d.data !== 999) {
+        //         vis.div.transition()
+        //             .duration(200)
+        //             .style("opacity", .9);
+        //         vis.div.html(`State: <span style='color:#FFDB6D'>${vis.defaults.labels[d.box].full}</span><br><br>
+        //               Number of Reported Breaches: <span style='color:#FFDB6D'>${d.data}</span><br>`)
+        //             .style("left", (d3.event.pageX) + "px")
+        //             .style("top", (d3.event.pageY - 28) + "px");
+        //     }
+        // })
+        // .on("mouseout", function(d) {
+        //     if(d.data !== 999) {
+        //         vis.div.transition()
+        //             .duration(500)
+        //             .style("opacity", 0)
+        //     }
+        // })
         .transition()
         .duration(500)
         .attr("x", function(d) {
@@ -256,18 +189,49 @@ Cartogram.prototype.updateVis = function() {
         .attr('text-anchor','middle')
         .attr('font-weight','800')
         .attr('fill',function(d) {
-            if(vis.color(Math.log(d.data)) === "#e34a33" || vis.color(Math.log(d.data)) === "#b30000") {
+            if(d.data != 0) {
                 return '#eaeaea';
             } else {
-                return  '#333333';
+                return  '#000000';
             }
         });
 
-    vis.legendTitle
-        .attr("x",vis.size.xScale(2))
-        .attr("y",vis.size.yScale(9.3))
-        .attr("font-size","11px")
-        .text('Total number of breaches per state :');
+    // vis.legendTitle
+    //     .attr("x",vis.size.xScale(2))
+    //     .attr("y",vis.size.yScale(9.3))
+    //     .attr("font-size","11px")
+    //     .text('Total number of breaches per state :');
 
     vis.boxes.exit().remove();
+};
+
+// draw carthogram and calculates box dimensions
+Cartogram.prototype.boxDimensions = function() {
+    var boxesWide = d3.extent(this.displayData, function(d) { return d.x; });
+    var boxesTall = d3.extent(this.displayData, function(d) { return d.y; });
+
+    this.boxesWide = boxesWide[1] - boxesWide[0] +1;
+    this.boxesTall = boxesTall[1] - boxesTall[0]  ;
+    this.ratio = this.boxesTall/this.boxesWide;
+
+    var xScale = d3.scaleLinear()
+        .domain([0, this.boxesWide])
+        .range([0,this.width]);
+
+    var yScale = d3.scaleLinear()
+        .domain([0, this.boxesTall])
+        .range([0, this.height]);
+
+    var boxWidth = this.width/this.boxesWide;
+
+    return {xScale: xScale, yScale: yScale, boxWidth: boxWidth};
+};
+
+// filter original unfiltered data depending on selection from drop down menu
+Cartogram.prototype.onDateChange = function(selection) {
+    var vis = this;
+
+    vis.filteredData = this.data.filter(d => d.years==selection)[0];
+
+    vis.wrangleData();
 };

@@ -145,8 +145,8 @@ div.tooltip {
 
 .year-text{
   color: white;
-  text-align: center;
-  text-anchor: middle;
+  text-align: left;
+  text-anchor: left;
   transform: translate(0, 1%) ;
 }
 
@@ -154,7 +154,7 @@ div.tooltip {
   cursor: default;
 }
 
-.year-select:hover{
-  fill: #343a40;
-}
+/*.year-select:hover{*/
+/*  fill: #343a40;*/
+/*}*/
 
