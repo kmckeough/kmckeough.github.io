@@ -143,4 +143,18 @@ div.tooltip {
   transform: translate(-50%, -50%);
 }
 
+.year-text{
+  color: white;
+  text-align: center;
+  text-anchor: middle;
+  transform: translate(0, 1%) ;
+}
+
+.year-text:hover{
+  cursor: default;
+}
+
+.year-select:hover{
+  fill: #343a40;
+}
 

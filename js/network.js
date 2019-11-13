@@ -1,4 +1,4 @@
-var width = document.getElementById("who").clientWidth,
+var width = document.getElementById("network").clientWidth,
     height = 800;
 
 var svg = d3.select("#network").append("svg")
@@ -20,8 +20,8 @@ d3.json("data/connections.json", function(data) {
 
     // 1) INITIALIZE FORCE-LAYOUT
     var force = d3.forceSimulation(data.nodes)
-        .force("charge", d3.forceManyBody().strength(-50))
-        .force("link", d3.forceLink(data.links).distance(100))
+        .force("charge", d3.forceManyBody().strength(-40))
+        .force("link", d3.forceLink(data.links).distance(80))
         .force("center", d3.forceCenter().x(width/2).y(height/2))
         .alphaDecay(0.01);
 

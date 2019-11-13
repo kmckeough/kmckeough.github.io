@@ -18,7 +18,7 @@ var map, timeline;
 
 // Start application by loading the data
 
- d3.csv("data/area_table.csv", function (error, peopleData) {
+d3.csv("data/area_table.csv", function (error, peopleData) {
 
 
 
@@ -33,12 +33,12 @@ var map, timeline;
 
         colorScale.domain(d3.keys(areaData[0]).filter(function(d){ return d != "years"; }));
 
-        createVis();
+    create_attend();
 
 
  });
 
-function createVis() {
+function create_attend() {
     //  Create event handler
     var MyEventHandler = {};
     // console.log(areaData);
