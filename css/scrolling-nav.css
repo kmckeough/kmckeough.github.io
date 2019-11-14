@@ -25,6 +25,12 @@ h2{
   padding-left: 10%;
 }
 
+h3{
+  color: #fe6b00;
+  font-sie: 30px;
+  padding-left:15%;
+}
+
 .main-header{
   background-color: #7a41ff;
 }
@@ -158,3 +164,7 @@ div.tooltip {
 /*  fill: #343a40;*/
 /*}*/
 
+.playlist{
+  padding-left:5%;
+  padding-bottom: 5%;
+}
