@@ -1,7 +1,7 @@
 var width = document.getElementById("network").clientWidth,
     height = 800;
 
-var svg = d3.select("#network").append("svg")
+var svg_network = d3.select("#network").append("svg")
     .attr("id","networksvg")
     .attr("width", width)
     .attr("height", height);
@@ -29,50 +29,58 @@ d3.json("data/connections.json", function(data) {
     // 2a) DEFINE 'NODES' AND 'EDGES'
 
 
-    var edges = svg.selectAll(".edge")
+    var edges = svg_network.selectAll(".edge")
         .data(data.links)
         .enter().append("line")
         .style("stroke","#ccc")
         .style("stroke-width",4);
 
-    var node = svg.selectAll(".node")
+    var node = svg_network.selectAll(".node")
         .data(data.nodes)
         .enter().append("circle")
         .attr("class", "node")
         .attr("r", 25)
-        .attr("fill", function(d){
-            if(d.city == "New York, NY"){
+        .attr("fill",function(d){
+            if(d.y2020 ){
                 return "#FF0080"
-            }else if( d.city == "Boston, MA"){
-                return "#d9df00"
-            }else if( d.city == "Washington DC"){
-                return "#7a41ff"
-            }else if( d.city == "Austin, TX"){
-                return "#fe6b00"
-            }else if( d.city == "San Fransisco, CA"){
-                return "#009fdf"
-            }else if( d.city =="Philadelphia, PA"){
-                return "#84e12b"
             }else{
                 return "#343a40"
             }
-        });
+        })
+        // .attr("fill", function(d){
+        //     if(d.city == "New York, NY"){
+        //         return "#FF0080"
+        //     }else if( d.city == "Boston, MA"){
+        //         return "#d9df00"
+        //     }else if( d.city == "Washington DC"){
+        //         return "#7a41ff"
+        //     }else if( d.city == "Austin, TX"){
+        //         return "#fe6b00"
+        //     }else if( d.city == "San Fransisco, CA"){
+        //         return "#009fdf"
+        //     }else if( d.city =="Philadelphia, PA"){
+        //         return "#84e12b"
+        //     }else{
+        //         return "#343a40"
+        //     }
+        // });
 
 
-    var label = svg.selectAll(".nodelabel")
+    var label = svg_network.selectAll(".nodelabel")
         .data(data.nodes)
         .enter().append("text")
         .attr("class", "nodelabel")
         .text(function(d) { return d.name; })
-        .attr("fill", function(d) {
-            if (d.city == "Boston, MA") {
-                return "#343a40"
-            } else if (d.city == "Philadelphia, PA"){
-                return "#343a40"
-            }else{
-                return "#ffffff"
-            }
-        });
+        .attr("fill","#ffffff");
+        // .attr("fill", function(d) {
+        //     if (d.city == "Boston, MA") {
+        //         return "#343a40"
+        //     } else if (d.city == "Philadelphia, PA"){
+        //         return "#343a40"
+        //     }else{
+        //         return "#ffffff"
+        //     }
+        // });
 
     // 2b) START RUNNING THE SIMULATION
     force.on("tick", function() {

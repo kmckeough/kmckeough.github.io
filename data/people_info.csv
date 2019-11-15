@@ -1,4 +1,4 @@
-id,name,city,state,2015,2016,2017,2018,2019,2020,num,purchase_date
+id,name,city,state,y2015,y2016,y2017,y2018,y2019,y2020,num,purchase_date
 0,Kyle,Austin,TX,1,1,1,1,1,1,6,NA
 1,Katy,Boston,MA,0,1,0,1,1,1,4,NA
 2,Julia,Washington DC,DC,0,0,1,1,1,1,4,NA
