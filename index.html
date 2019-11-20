@@ -39,6 +39,9 @@
           <a class="nav-link js-scroll-trigger" href="#where">Where?</a>
         </li>
           <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#this">This</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#what">What?</a>
           </li>
         </ul>
@@ -49,7 +52,7 @@
   <header class="main-header text-white">
     <div class="container text-center">
       <h1>Mom's Spaghetti</h1>
-      <p class="lead">Bonnaroo croo insights</p>
+      <div class="lead">Bonnaroo croo insights</div>
     </div>
   </header>
 
@@ -57,7 +60,7 @@
   <br>
   <div class="text-body text-white" style="height:400px">
     <h1 class="text-white">2019 Croo members:</h1>
-    <p id="total" class="text-white">0</p>
+    <div id="total" class="text-white">0</div>
   </div>
 
   <div class="text-white divide">
@@ -141,7 +144,7 @@
               <div class="col-sm">
                 <img class="d-block w-100 slides h-75" src="img/aubrey_sarah.jpg" >              </div>
               <div class="col-sm slide-text">
-                Aubry Higgonson
+                Aubrey
                 <br>
                 Sarah McQuade
               </div>
@@ -160,8 +163,17 @@
     </div>
 
     <!--Forced Layout Graph-->
-
-    <div class="container"  id="network"></div>
+    <br>
+    <p>How we are connected.</p>
+    <!--map-->
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="container"  id="network"></div>
+      </div>
+      <div class="col-sm-3">
+        <div class="container"  id="dateselect1">      </div>
+      </div>
+    </div>
   </section>
 
   <!--Quote Divide-->
@@ -191,6 +203,7 @@
 
   <section id="where", class="graphic-body">
     <h2>Where?</h2>
+
     <!--map-->
     <div class="row">
       <div class="col-sm-9">
@@ -198,7 +211,6 @@
       </div>
       <div class="col-sm-3">
         <div class="container"  id="dateselect2">      </div>
-      </div>
       </div>
     </div>
   </section>
@@ -210,6 +222,8 @@
 
   <section id="this", class="graphic-body">
     <h2>This</h2>
+    <br>
+    <p>The number of years we've been to Bonnaroo.</p>
     <div id = "flower-chart"></div>
   </section>
 
@@ -221,10 +235,13 @@
 
   <section id="what", class="graphic-body">
     <h2>What?</h2>
+    <br>
+    <p>Music we listen to</p>
+    <br>
     <!--<br>-->
     <!--<h3>Best Of:</h3>-->
     <!--<br>-->
-    <!--<iframe src="https://open.spotify.com/embed/playlist/4y6axTxYXTqpzWTkhwXgF0" width="300" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media" class="playlist"></iframe>-->
+    <iframe src="https://open.spotify.com/embed/playlist/4y6axTxYXTqpzWTkhwXgF0" width="300" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media" class="playlist"></iframe>
     <!--<iframe src="https://open.spotify.com/embed/playlist/4rlAVRRK9Yye2AQv5iaGTM" width="300" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media" class="playlist"></iframe>-->
     <!--<iframe src="https://open.spotify.com/embed/playlist/3yumm8V3mF5YdiR7huSMoC" width="300" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media" class="playlist"></iframe>-->
     <!--<iframe src="https://open.spotify.com/embed/playlist/0HSbm5vyXzUcu459E8rLL8" width="300" height="300" frameborder="0" allowtransparency="true" allow="encrypted-media" class="playlist"></iframe>-->
@@ -238,7 +255,7 @@
   </section>
 
   <div class="text-white divide">
-    <img src="img/roorace.jpg">
+    <img src="img/arch.jpeg">
     <div class="quote centered">STAY TRUE TO ROO</div>
   </div>
 
@@ -262,13 +279,14 @@
   <script src="https://d3js.org/d3.v4.min.js"></script>
 
   <!-- Custom JavaScript-->
-  <script src="js/network.js"></script>
+  <script src="js/time-select.js"></script>
+  <script src="js/network_time.js"></script>
+  <script src="js/who_network.js"></script>
   <script src="js/total.js"></script>
   <script src="js/attend_roo.js"></script>
   <script src="js/when.js"></script>
   <script src="js/where.js"></script>
   <script src="js/cartogram.js"></script>
-  <script src="js/time-select.js"></script>
   <script src="js/this.js"></script>
 
 </body>

@@ -25,6 +25,7 @@ d3.csv("data/cart_table", function (error, importData) {
 
     stateData = importData;
     timeData = importData.filter(d => d.years !="All");
+    console.log(timeData);
 
 
     create_cart();

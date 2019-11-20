@@ -18,7 +18,7 @@ yearSelect.prototype.initVis = function() {
     var vis = this;
     vis.margin = {top: 60, right: 0, bottom: 30, left: 0};
 
-    vis.width = $("#" + "dateselect2").width()*0.75 - vis.margin.left - vis.margin.right;
+    vis.width = $("#" + this.parentElement).width()*0.75 - vis.margin.left - vis.margin.right;
     vis.height = 400
 
 

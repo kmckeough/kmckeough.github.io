@@ -1,10 +1,10 @@
 var width = document.getElementById("network").clientWidth,
-    height = 800;
+    height = width*7/11;
 
 var svg_network = d3.select("#network").append("svg")
     .attr("id","networksvg")
-    .attr("width", width)
-    .attr("height", height);
+    .attr("viewBox", "0 0 " + width + " " + height )
+    .attr("preserveAspectRatio", "xMidYMid meet");;
 
 
 
@@ -20,9 +20,12 @@ d3.json("data/connections.json", function(data) {
 
     // 1) INITIALIZE FORCE-LAYOUT
     var force = d3.forceSimulation(data.nodes)
-        .force("charge", d3.forceManyBody().strength(-40))
-        .force("link", d3.forceLink(data.links).distance(80))
-        .force("center", d3.forceCenter().x(width/2).y(height/2))
+        .force("charge", d3.forceManyBody().strength(-30))
+        .force("link", d3.forceLink(data.links).distance(50))
+        .force("center", d3.forceCenter().x(width/2).y(height/3))
+        .force("collision",d3.forceCollide().radius(function(d) {
+            return 30
+        }))
         .alphaDecay(0.01);
 
 
@@ -39,7 +42,7 @@ d3.json("data/connections.json", function(data) {
         .data(data.nodes)
         .enter().append("circle")
         .attr("class", "node")
-        .attr("r", 25)
+        .attr("r", 22)
         .attr("fill",function(d){
             if(d.y2020 ){
                 return "#FF0080"
@@ -71,7 +74,7 @@ d3.json("data/connections.json", function(data) {
         .enter().append("text")
         .attr("class", "nodelabel")
         .text(function(d) { return d.name; })
-        .attr("fill","#ffffff");
+        .attr("fill","#ffffff")
         // .attr("fill", function(d) {
         //     if (d.city == "Boston, MA") {
         //         return "#343a40"
@@ -90,9 +93,11 @@ d3.json("data/connections.json", function(data) {
             .attr("x", function(d) { return d.x; })
             .attr("y", function(d) { return d.y; });
         // Update node coordinates
-        node
-            .attr("cx", function(d) { return d.x; })
-            .attr("cy", function(d) { return d.y; });
+        // node
+        //     .attr("cx", function(d) { return d.x; })
+        //     .attr("cy", function(d) { return d.y; });
+        node.attr("cx", function(d) { return d.x = Math.max(22, Math.min(width - 22, d.x)); })
+            .attr("cy", function(d) { return d.y = Math.max(22, Math.min(height - 22, d.y)); });
 
         // Update edge coordinates
         edges
