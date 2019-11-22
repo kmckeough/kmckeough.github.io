@@ -1,5 +1,6 @@
 var width = document.getElementById("network").clientWidth,
-    height = width*7/11;
+    height = width*7/11,
+    radius=22;
 
 var svg_network = d3.select("#network").append("svg")
     .attr("id","networksvg")
@@ -24,7 +25,7 @@ d3.json("data/connections.json", function(data) {
         .force("link", d3.forceLink(data.links).distance(50))
         .force("center", d3.forceCenter().x(width/2).y(height/3))
         .force("collision",d3.forceCollide().radius(function(d) {
-            return 30
+            return radius+8
         }))
         .alphaDecay(0.01);
 
@@ -42,7 +43,7 @@ d3.json("data/connections.json", function(data) {
         .data(data.nodes)
         .enter().append("circle")
         .attr("class", "node")
-        .attr("r", 22)
+        .attr("r", radius)
         .attr("fill",function(d){
             if(d.y2020 ){
                 return "#FF0080"
@@ -74,7 +75,7 @@ d3.json("data/connections.json", function(data) {
         .enter().append("text")
         .attr("class", "nodelabel")
         .text(function(d) { return d.name; })
-        .attr("fill","#ffffff")
+        .attr("fill","#ffffff");
         // .attr("fill", function(d) {
         //     if (d.city == "Boston, MA") {
         //         return "#343a40"
@@ -96,8 +97,8 @@ d3.json("data/connections.json", function(data) {
         // node
         //     .attr("cx", function(d) { return d.x; })
         //     .attr("cy", function(d) { return d.y; });
-        node.attr("cx", function(d) { return d.x = Math.max(22, Math.min(width - 22, d.x)); })
-            .attr("cy", function(d) { return d.y = Math.max(22, Math.min(height - 22, d.y)); });
+        node.attr("cx", function(d) { return d.x = Math.max(radius, Math.min(width - radius, d.x)); })
+            .attr("cy", function(d) { return d.y = Math.max(radius, Math.min(height - radius, d.y)); });
 
         // Update edge coordinates
         edges

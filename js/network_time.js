@@ -1,10 +1,8 @@
 Network = function(_parentElement, _data) {
     this.parentElement = _parentElement;
     this.data = _data;
-    this.displayData = [];
-    // this.filteredData = this.data.filter(d => d.years=="All")[0];
-
-    console.log(this.data)
+    this.displayData = _data;
+    this.filteredData = this.data;
 
     this.initVis();
 };
@@ -15,12 +13,12 @@ Network.prototype.initVis = function() {
 
     vis.margin = {top: 0, right: 0, bottom: 0, left: 0};
 
-    vis.width = Math.min($("#" + this.parentElement).width() - vis.margin.left - vis.margin.right,800);
+    vis.width = Math.min($("#" + vis.parentElement).width() - vis.margin.left - vis.margin.right,800);
     vis.height = vis.width;
     vis.rad = 22;
 
 
-    vis.svg = d3.select("#"+this.parentElement).append("svg")
+    vis.svg = d3.select("#"+vis.parentElement).append("svg")
         .attr("id","networksvg")
         .attr("viewBox", "0 0 " + vis.width + " " + vis.height )
         .attr("preserveAspectRatio", "xMidYMid meet");
@@ -38,6 +36,9 @@ Network.prototype.wrangleData = function() {
     var vis = this;
 
 
+    console.log(this.data);
+    console.log(this.filteredData);
+    console.log(this.displayData);
 
     vis.updateVis();
 };
@@ -49,9 +50,9 @@ Network.prototype.updateVis = function() {
 
 
     // 1) INITIALIZE FORCE-LAYOUT
-    vis.force = d3.forceSimulation(vis.data.nodes)
+    vis.force = d3.forceSimulation(vis.filteredData.nodes)
         .force("charge", d3.forceManyBody().strength(-30))
-        .force("link", d3.forceLink(vis.data.links).distance(50))
+        .force("link", d3.forceLink(vis.filteredData.links).distance(50))
         .force("center", d3.forceCenter().x(vis.width/2).y(vis.height/2))
         .force("collision",d3.forceCollide().radius(function(d) {
             return vis.rad+8;
@@ -62,13 +63,13 @@ Network.prototype.updateVis = function() {
 
 
     vis.edges = vis.svg.selectAll(".edge")
-        .data(vis.data.links)
+        .data(vis.filteredData.links)
         .enter().append("line")
         .style("stroke","#ccc")
         .style("stroke-width",4);
 
     vis.node = vis.svg.selectAll(".node")
-        .data(vis.data.nodes)
+        .data(vis.filteredData.nodes)
         .enter().append("circle")
         .attr("class", "node")
         .attr("r", vis.rad)
@@ -81,7 +82,7 @@ Network.prototype.updateVis = function() {
         });
 
     vis.label = vis.svg.selectAll(".nodelabel")
-        .data(vis.data.nodes)
+        .data(vis.filteredData.nodes)
         .enter().append("text")
         .attr("class", "nodelabel")
         .text(function(d) { return d.name; })
@@ -142,9 +143,28 @@ Network.prototype.updateVis = function() {
 Network.prototype.onDateChange = function(selection) {
     var vis = this;
 
-    vis.filteredData = this.data.filter(d => d.years==selection)[0];
+    console.log(selection);
+
+    if(selection =='All'){
+        vis.filteredData = vis.displayData;
+
+    }else{
+        vis.filteredData.nodes = vis.displayData.nodes.filter(function(d){
+            return(d["y"+selection]);
+        });
+        // vis.filteredData.nodes = []
+        // vis.data.nodes.forEach(function(d){
+        //     if(d["y"+selection]){
+        //         vis.filteredData.nodes.push(d)
+        //     }
+        // })
+
+    }
+
 
     vis.wrangleData();
 };
+
+
 
 
