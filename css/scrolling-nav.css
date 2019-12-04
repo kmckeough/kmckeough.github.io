@@ -217,3 +217,9 @@ div.tooltip {
   border-radius: 8px;
   pointer-events: none;
 }
+
+#countdown{
+    color: white;
+    font-size: 80px;
+    text-align: center;
+}
