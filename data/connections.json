@@ -196,7 +196,7 @@
       "y2017": false,
       "y2018": false,
       "y2019": true,
-      "y2020": true
+      "y2020": false
     },
     {
       "id": 18,
@@ -229,7 +229,7 @@
       "y2017": false,
       "y2018": false,
       "y2019": true,
-      "y2020": false
+      "y2020": true
     },
     {
       "id": 21,
@@ -251,7 +251,7 @@
       "y2017": false,
       "y2018": false,
       "y2019": true,
-      "y2020": false
+      "y2020": true
     },
     {
       "id": 23,
@@ -262,7 +262,7 @@
       "y2017": false,
       "y2018": false,
       "y2019": true,
-      "y2020": false
+      "y2020": true
     },
     {
       "id": 24,
@@ -273,7 +273,7 @@
       "y2017": false,
       "y2018": false,
       "y2019": true,
-      "y2020": false
+      "y2020": true
     },
     {
       "id": 25,
@@ -284,7 +284,7 @@
       "y2017": false,
       "y2018": false,
       "y2019": true,
-      "y2020": false
+      "y2020": true
     },
     {
       "id": 26,
@@ -295,7 +295,7 @@
       "y2017": false,
       "y2018": false,
       "y2019": true,
-      "y2020": false
+      "y2020": true
     },
     {
       "id": 27,
@@ -317,7 +317,7 @@
       "y2017": false,
       "y2018": false,
       "y2019": true,
-      "y2020": false
+      "y2020": true
     },
     {
       "id": 29,
@@ -354,7 +354,7 @@
     },
     {
       "id": 32,
-      "name": "John",
+      "name": "Jon",
       "city": "Philadelphia, PA",
       "y2015": false,
       "y2016": false,
@@ -362,6 +362,149 @@
       "y2018": true,
       "y2019": false,
       "y2020": false
+    },
+    {
+      "id": 33,
+      "name": "Kellen",
+      "city": "New York, NY",
+      "y2015": false,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
+    },
+    {
+      "id": 34,
+      "name": "Salim",
+      "city": "Austin, TX",
+      "y2015": false,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
+    },
+    {
+      "id": 35,
+      "name": "Matt",
+      "city": "Philadelphia, PA",
+      "y2015": false,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
+    },
+    {
+      "id": 36,
+      "name": "Rachel",
+      "city": "Philadelphia, PA",
+      "y2015": false,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
+    },
+    {
+      "id": 37,
+      "name": "Kelly",
+      "city": "Philadelphia, PA",
+      "y2015": false,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
+    },
+    {
+      "id": 38,
+      "name": "Ian",
+      "city": "New York, NY",
+      "y2015": false,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
+    },
+    {
+      "id": 39,
+      "name": "Marie",
+      "city": "New York, NY",
+      "y2015": false,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
+    },
+    {
+      "id": 40,
+      "name": "Dan",
+      "city": "Boston, MA",
+      "y2015": false,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
+    },
+    {
+      "id": 41,
+      "name": "Paul",
+      "city": "NY, NY",
+      "y2015": false,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
+    },
+    {
+      "id": 42,
+      "name": "Jason",
+      "city": "Chicago, IL",
+      "y2015": true,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
+    },
+    {
+      "id": 43,
+      "name": "Pavel",
+      "city": "Philadelphia, PA",
+      "y2015": false,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
+    },
+    {
+      "id": 44,
+      "name": "Reina",
+      "city": "Philadelphia, PA",
+      "y2015": false,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
+    },
+    {
+      "id": 45,
+      "name": "Meital",
+      "city": "Chicago, IL",
+      "y2015": true,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
     }
 
   ],
@@ -573,6 +716,98 @@
     {
       "source": 5,
       "target": 13
+    },
+    {
+      "source": 7,
+      "target": 44
+    },
+    {
+      "source": 5,
+      "target": 13
+    },
+    {
+      "source": 45,
+      "target": 42
+    },
+    {
+      "source": 45,
+      "target": 0
+    },
+    {
+      "source": 42,
+      "target": 0
+    },
+    {
+      "source": 43,
+      "target": 0
+    },
+    {
+      "source": 19,
+      "target": 41
+    },
+    {
+      "source": 40,
+      "target": 1
+    },
+    {
+      "source": 40,
+      "target": 17
+    },
+    {
+      "source": 39,
+      "target": 10
+    },
+    {
+      "source": 38,
+      "target": 10
+    },
+    {
+      "source": 37,
+      "target": 8
+    },
+    {
+      "source": 35,
+      "target": 36
+    },
+    {
+      "source": 35,
+      "target": 4
+    },
+    {
+      "source": 35,
+      "target": 5
+    },
+    {
+      "source": 4,
+      "target": 36
+    },
+    {
+      "source": 5,
+      "target": 36
+    },
+    {
+      "source": 0,
+      "target": 34
+    },
+    {
+      "source": 33,
+      "target": 0
+    },
+    {
+      "source": 33,
+      "target": 3
+    },
+    {
+      "source": 33,
+      "target": 6
+    },
+    {
+      "source": 33,
+      "target": 8
+    },
+    {
+      "source": 33,
+      "target": 9
     }
   ]
 }

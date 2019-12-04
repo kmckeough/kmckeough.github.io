@@ -27,14 +27,37 @@ h2{
 
 h3{
   color: #fe6b00;
-  font-sie: 30px;
+  font-size: 30px;
   padding-left:15%;
+}
+
+h4{
+    color: white;
+    font-size: 50px;
+    padding-left: 10%;
+}
+p.slide-years{
+    color: white;
+    font-size: 20px;
+    padding-left: 15%;
+}
+p.slide-quote{
+    color: white;
+    font-size: 20px;
+    font-style: italic;
+    padding-left: 15%;
+}
+
+#main_title{
+  font-size: 80px;
+  font-family: "Arial Black", Gadget, sans-serif;
 }
 
 p{
   color: white;
   font-size: 20px;
   padding-left: 10%;
+  padding-right: 10%;
 }
 
 .main-header{

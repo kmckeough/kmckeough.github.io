@@ -2,10 +2,16 @@ var width = document.getElementById("network").clientWidth,
     height = width*7/11,
     radius=22;
 
+var margin = {top: 0, right: 0, bottom: 0, left: 0};
+
+
 var svg_network = d3.select("#network").append("svg")
-    .attr("id","networksvg")
+    // .attr("id","networksvg")
+    // .attr("width", width)
+    // .attr("height", height)
+    // .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     .attr("viewBox", "0 0 " + width + " " + height )
-    .attr("preserveAspectRatio", "xMidYMid meet");;
+    .attr("preserveAspectRatio", "xMidYMid meet");
 
 
 
@@ -21,7 +27,7 @@ d3.json("data/connections.json", function(data) {
 
     // 1) INITIALIZE FORCE-LAYOUT
     var force = d3.forceSimulation(data.nodes)
-        .force("charge", d3.forceManyBody().strength(-30))
+        .force("charge", d3.forceManyBody().strength(-10))
         .force("link", d3.forceLink(data.links).distance(50))
         .force("center", d3.forceCenter().x(width/2).y(height/3))
         .force("collision",d3.forceCollide().radius(function(d) {
@@ -37,7 +43,8 @@ d3.json("data/connections.json", function(data) {
         .data(data.links)
         .enter().append("line")
         .style("stroke","#ccc")
-        .style("stroke-width",4);
+        .style("stroke-width",4)
+        .style("opacity",0.8);
 
     var node = svg_network.selectAll(".node")
         .data(data.nodes)

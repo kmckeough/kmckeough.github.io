@@ -29,7 +29,7 @@ d3.csv("data/people_info.csv", function(data) {
 //    Sort Data by number of years
 
     data.sort(function(a,b){
-        return b.num - a.num;
+        return b.y2020-a.y2020 || b.num - a.num;
     });
 
     var rows =  Math.ceil(data.length/cols+1);
