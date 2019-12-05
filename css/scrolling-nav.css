@@ -33,23 +33,26 @@ h3{
 
 h4{
     color: white;
-    font-size: 50px;
+    font-size: 40px;
     padding-left: 10%;
 }
 p.slide-years{
     color: white;
     font-size: 20px;
     padding-left: 15%;
+    line-height: 90%;
 }
 p.slide-quote{
     color: white;
     font-size: 20px;
     font-style: italic;
     padding-left: 15%;
+    line-height: 50%;
+
 }
 
 #main_title{
-  font-size: 80px;
+  font-size: 70px;
   font-family: "Arial Black", Gadget, sans-serif;
 }
 
@@ -138,16 +141,18 @@ div.tooltip {
 }
 
 .slides{
+    position: relative;
   object-fit: cover;
   border-radius: 50%;
-
+    left: 100px;
+    width: 450px;
+    height:450px;
 }
 
 
 .slide-text{
   color: white;
   font-size: 50px;
-  padding-left: 10%;
 }
 
 .quote{

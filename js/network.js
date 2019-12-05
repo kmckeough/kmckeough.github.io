@@ -29,7 +29,7 @@ d3.json("data/connections.json", function(data) {
     var force = d3.forceSimulation(data.nodes)
         .force("charge", d3.forceManyBody().strength(-10))
         .force("link", d3.forceLink(data.links).distance(50))
-        .force("center", d3.forceCenter().x(width/2).y(height/3))
+        .force("center", d3.forceCenter().x(width/3).y(height/3))
         .force("collision",d3.forceCollide().radius(function(d) {
             return radius+8
         }))
