@@ -18,7 +18,7 @@ id,name,city,state,y2015,y2016,y2017,y2018,y2019,y2020,num
 16,Sarah,New Haven,CT,0,0,0,0,1,0,1
 17,James,Boston,MA,0,0,0,0,1,0,1
 18,Maddy,Boston,MA,0,0,0,0,0,1,1
-19,Tony,NY,NY,1,1,1,1,1,1,6
+19,Tony,NY,NY,0,0,1,1,1,1,6
 20,Corey,Austin,TX,0,0,0,0,1,1,2
 21,Greg,Austin,TX,0,0,0,0,1,0,1
 22,Alex,New York,NY,0,0,0,0,1,1,2

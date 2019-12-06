@@ -9,7 +9,7 @@ d3.select("#total")
         d3.active(this)
             .tween("text", function() {
                 var that = d3.select(this),
-                    i = d3.interpolateNumber(that.text().replace(/,/g, ""),28);
+                    i = d3.interpolateNumber(that.text().replace(/,/g, ""),32);
                 return function(t) { that.text(format(i(t))); };
             })
             .transition()
