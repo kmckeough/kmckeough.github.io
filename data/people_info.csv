@@ -14,20 +14,20 @@ id,name,city,state,y2015,y2016,y2017,y2018,y2019,y2020,num
 12,Phil,New York,NY,0,0,0,0,1,0,1
 13,Alex,San Fransisco,CA,0,0,0,1,1,0,2
 14,Emily,San Fransisco,CA,0,0,0,1,1,0,2
-15,Adele,New York,NY,0,0,0,0,1,0,1
+15,Adele,New York,NY,0,0,0,0,1,1,2
 16,Sarah,New Haven,CT,0,0,0,0,1,0,1
-17,James,Boston,MA,0,0,0,0,1,0,1
+17,James,Boston,MA,0,0,0,0,1,1,2
 18,Maddy,Boston,MA,0,0,0,0,0,1,1
-19,Tony,NY,NY,0,0,1,1,1,1,6
+19,Tony,NY,NY,0,0,1,1,1,1,4
 20,Corey,Austin,TX,0,0,0,0,1,1,2
 21,Greg,Austin,TX,0,0,0,0,1,0,1
 22,Alex,New York,NY,0,0,0,0,1,1,2
 23,Claire,Washington DC,DC,0,0,0,0,1,1,2
-24,Ciria,Washington DC,DC,0,0,0,0,1,0,1
-25,Malcolm,Los Angeles,CA,0,0,0,0,1,0,1
+24,Ciria,Washington DC,DC,0,0,0,0,1,1,2
+25,Malcolm,Los Angeles,CA,0,0,0,0,1,1,2
 26,Michele,Boston,MA,0,0,0,0,1,1,2
 27,Laurel,Chicago,IL,0,0,0,0,1,0,1
-28,Moritz,New York,NY,0,0,0,0,1,0,1
+28,Moritz,New York,NY,0,0,0,0,1,1,2
 29,Jon,Philadelphia,PA,0,0,0,1,0,0,1
 30,Andy,Philadelphia,PA,0,0,0,1,0,0,1
 31,Akaash,San Fransisco,CA,1,0,0,0,0,0,1
@@ -45,3 +45,8 @@ id,name,city,state,y2015,y2016,y2017,y2018,y2019,y2020,num
 43,Pavel,Philadelphia,PA,0,0,0,0,0,1,1
 44,Reina,Philadelphia,PA,0,0,0,0,0,1,1
 45,Meital,Chicago,IL,1,0,0,0,0,1,2
+46,Mitch,New York,NY,0,0,0,0,0,1,1
+47,Cullen,Washington DC,DC,0,0,0,0,0,1,1
+48,Hayden,Denver,CO,0,0,0,0,0,1,1
+49,Phoebe,New York,NY,0,0,0,0,0,1,1
+50,Mary,Washington DC,DC,0,0,0,0,0,1,1

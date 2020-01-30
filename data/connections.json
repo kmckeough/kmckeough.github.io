@@ -505,6 +505,61 @@
       "y2018": false,
       "y2019": false,
       "y2020": true
+    },
+    {
+      "id": 46,
+      "name": "Mitch",
+      "city": "New York, NY",
+      "y2015": false,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
+    },
+    {
+      "id": 47,
+      "name": "Cullen",
+      "city": "Washington DC",
+      "y2015": false,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
+    },
+    {
+      "id": 48,
+      "name": "Hayden",
+      "city": "Denver, CO",
+      "y2015": false,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
+    },
+    {
+      "id": 49,
+      "name": "Phoebe",
+      "city": "New York, NY",
+      "y2015": false,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
+    },
+    {
+      "id": 50,
+      "name": "Mary",
+      "city": "Washington DC",
+      "y2015": false,
+      "y2016": false,
+      "y2017": false,
+      "y2018": false,
+      "y2019": false,
+      "y2020": true
     }
 
   ],
@@ -808,6 +863,54 @@
     {
       "source": 33,
       "target": 9
+    },
+    {
+      "source": 46,
+      "target": 23
+    },
+    {
+      "source": 47,
+      "target": 10
+    },
+    {
+      "source": 47,
+      "target": 11
+    },
+    {
+      "source": 47,
+      "target": 24
+    },
+    {
+      "source": 48,
+      "target": 0
+    },
+    {
+      "source": 48,
+      "target": 8
+    },
+    {
+      "source": 48,
+      "target": 9
+    },
+    {
+      "source": 48,
+      "target": 6
+    },
+    {
+      "source": 48,
+      "target": 33
+    },
+    {
+      "source": 49,
+      "target": 2
+    },
+    {
+      "source": 50,
+      "target": 2
+    },
+    {
+      "source": 50,
+      "target": 49
     }
   ]
 }
